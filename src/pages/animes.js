@@ -1,3 +1,4 @@
+// Seu arquivo React (ex: Anime.js)
 import React from "react";
 import api from "@/Data/api";
 import styles from "../styles/items.module.css";
@@ -22,8 +23,9 @@ export default function Anime({ animes }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await api.get("/animes");
+export async function getServerSideProps(context) {
+  const categoria = "anime"; // Defina a categoria aqui
+  const res = await api.get(`/animes?categoria=${categoria}`);
   const animes = await res.data;
 
   return {

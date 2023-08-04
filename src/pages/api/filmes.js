@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  res.status(200).json([
+  const items = [
     {
       id: 1,
       nome: "Oppenheimer",
@@ -7,6 +7,7 @@ export default function handler(req, res) {
       descricao: "bom",
       nota: 92,
       duracao: 3,
+      categoria: "anime",
     },
     {
       id: 2,
@@ -15,14 +16,30 @@ export default function handler(req, res) {
       descricao: "bom mas depende",
       nota: 79,
       nmrEp: 44,
+      categoria: "filme",
     },
     {
       id: 3,
-      nome: "vinland saga ",
+      nome: "vinland saga",
       img: "https://w0.peakpx.com/wallpaper/44/489/HD-wallpaper-vinland-saga-thorfinn.jpg",
       descricao: "bom mas depende",
       nota: 91,
       nmrEp: 48,
+      categoria: "anime",
     },
-  ]);
+  ];
+
+  const categoriaParam = req.query.categoria; // Supondo que o parâmetro seja passado na query string
+
+  if (!categoriaParam) {
+    return res
+      .status(400)
+      .json({ message: "A categoria deve ser fornecida como parâmetro." });
+  }
+
+  const itemsFiltrados = items.filter(
+    (item) => item.categoria === categoriaParam
+  );
+
+  res.status(200).json(itemsFiltrados);
 }
