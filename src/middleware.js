@@ -4,14 +4,6 @@ export default function middleware(req) {
   let verify = req.cookies.get("next-auth.session-token");
   let url = req.url;
 
-  if (!verify && url.includes("/teste")) {
-    return NextResponse.redirect("http://localhost:3000/");
-  }
-
-  if (verify && url === "http://localhost:3000/") {
-    return NextResponse.redirect("http://localhost:3000/teste");
-  }
-
   if (!verify && url.includes("/feed")) {
     return NextResponse.redirect("http://localhost:3000/");
   }
