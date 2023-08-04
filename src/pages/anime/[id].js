@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
 import styles from "../../styles/item.module.css";
+import api from "@/Data/api";
 
-export default function Anime({ anime }) {
+export default function AnimeItem({ anime }) {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -19,7 +20,7 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const id = params.id;
 
-  const res = await axios.get(`http://localhost:3000/api/items?id=${id}`);
+  const res = await api.get(`/api/items?id=${id}`);
   const anime = await res.data;
   console.log(anime);
 
