@@ -40,7 +40,7 @@ export default function Navbar() {
       <ul className={isOpen ? styles.menuListOpen : styles.menuListClosed}>
         <li>
           <Link onClick={toggleList} href="/">
-            Feed
+            Home
           </Link>
         </li>
       </ul>

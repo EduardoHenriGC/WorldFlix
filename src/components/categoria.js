@@ -3,7 +3,7 @@ import api from "@/Data/api";
 import styles from "../styles/teste.module.css";
 import Link from "next/link"; // Import the Link component
 
-export default function Teste({ item }) {
+export default function Categories({ item }) {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
