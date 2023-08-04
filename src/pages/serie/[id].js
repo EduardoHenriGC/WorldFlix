@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import api from "@/Data/api";
 import styles from "../../styles/item.module.css";
 
 export default function Anime({ anime }) {
@@ -19,9 +19,8 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const id = params.id;
 
-  const res = await axios.get(`http://localhost:3000/api/items?id=${id}`);
-  const anime = await res.data;
-  console.log(anime);
+  const res = await api.get(`/items?id=${id}`);
+  const anime = await res.data[0]; // Observe o [0] aqui, porque estamos pegando o primeiro item da resposta
 
   return {
     props: { anime },

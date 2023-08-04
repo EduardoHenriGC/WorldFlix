@@ -7,7 +7,7 @@ export default function handler(req, res) {
       descricao: "bom",
       nota: 86,
       nmrEp: 500,
-      categoria: "anime",
+      categoria: "animes",
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ export default function handler(req, res) {
       descricao: "bom mas depende",
       nota: 79,
       nmrEp: 44,
-      categoria: "anime",
+      categoria: "animes",
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ export default function handler(req, res) {
       descricao: "bom mas depende",
       nota: 91,
       nmrEp: 48,
-      categoria: "anime",
+      categoria: "animes",
     },
     {
       id: 4,
@@ -83,17 +83,29 @@ export default function handler(req, res) {
     },
   ];
 
-  const categoriaParam = req.query.categoria; // Supondo que o parâmetro seja passado na query string
+  const categoriaParam = req.query.categoria;
+  const idParam = req.query.id;
 
-  if (!categoriaParam) {
-    return res
-      .status(400)
-      .json({ message: "A categoria deve ser fornecida como parâmetro." });
+  if (!categoriaParam && !idParam) {
+    return res.status(400).json({
+      message: "A categoria ou o ID deve ser fornecido como parâmetro.",
+    });
   }
 
-  const itemsFiltrados = items.filter(
-    (item) => item.categoria === categoriaParam
-  );
-
-  res.status(200).json(itemsFiltrados);
+  if (categoriaParam) {
+    const itemsFiltradosPorCategoria = items.filter(
+      (item) => item.categoria === categoriaParam
+    );
+    res.status(200).json(itemsFiltradosPorCategoria);
+  } else if (idParam) {
+    const itemEncontradoPorId = items.find(
+      (item) => item.id === parseInt(idParam)
+    );
+    if (!itemEncontradoPorId) {
+      return res
+        .status(404)
+        .json({ message: "Item não encontrado com o ID fornecido." });
+    }
+    res.status(200).json(itemEncontradoPorId);
+  }
 }

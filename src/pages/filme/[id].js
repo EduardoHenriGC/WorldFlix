@@ -20,7 +20,7 @@ export default function Filme({ filmes }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await api.get("/filmes");
+  const res = await api.get("/items");
   const filmes = await res.data;
 
   // You can add an ID parameter to your URL to filter by ID
