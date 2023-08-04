@@ -23,9 +23,9 @@ export default function Anime({ animes }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const categoria = "anime"; // Defina a categoria aqui
-  const res = await api.get(`/animes?categoria=${categoria}`);
+  const res = await api.get(`/items?categoria=${categoria}`);
   const animes = await res.data;
 
   return {
