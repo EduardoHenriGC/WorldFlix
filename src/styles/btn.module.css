@@ -1,0 +1,21 @@
+.sendxl {
+  padding: 7px 40px;
+}
+
+.sendsm {
+  padding: 6px 10px;
+}
+
+.sendmd {
+  padding: 6px 24px;
+}
+
+.btn {
+  font-size: 1rem;
+  color: white;
+  border: none;
+  background-color: green;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
