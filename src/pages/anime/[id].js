@@ -22,7 +22,6 @@ export async function getServerSideProps(context) {
 
   const res = await api.get(`/items?id=${id}`);
   const anime = await res.data;
-  console.log(anime);
 
   return {
     props: { anime },
