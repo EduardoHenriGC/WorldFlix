@@ -7,13 +7,13 @@ export default function Teste({ item }) {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        {item.map(({ categoria, img }) => (
-          <li className={styles.item} key={categoria}>
+        {item.map(({ categories, img }) => (
+          <li className={styles.item} key={categories}>
             <div className={styles.content}>
-              <Link className={styles.btntext} href={`/${categoria}`}>
-                {categoria}
+              <Link className={styles.btntext} href={`/${categories}`}>
+                {categories}
               </Link>
-              <img className={styles.img} src={img} alt={categoria} />
+              <img className={styles.img} src={img} alt={categories} />
             </div>
           </li>
         ))}

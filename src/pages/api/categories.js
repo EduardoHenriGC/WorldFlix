@@ -9,7 +9,7 @@ export default function handler(req, res) {
       img: "https://e1.pxfuel.com/desktop-wallpaper/639/726/desktop-wallpaper-batman-beyond-comic-batman-beyond.jpg",
     },
     {
-      categories: "Séries",
+      categories: "series",
       img: "https://w0.peakpx.com/wallpaper/290/26/HD-wallpaper-vikings-ragnar-viking.jpg",
     },
   ]);

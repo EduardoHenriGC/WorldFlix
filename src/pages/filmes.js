@@ -1,8 +1,9 @@
+// Seu arquivo React (ex: Anime.js)
 import React from "react";
 import api from "@/Data/api";
 import styles from "../styles/items.module.css";
 
-export default function Filme({ filmes }) {
+export default function Filmes({ filmes }) {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
@@ -11,7 +12,7 @@ export default function Filme({ filmes }) {
             <div className={styles.content}>
               <h3 className={styles.title}>{nome}</h3>
               <img className={styles.img} src={img} alt={nome} />
-              <a className={styles.btn} href={`/filme/${id}`}>
+              <a className={styles.btn} href={`/anime/${id}`}>
                 ver mais..
               </a>
             </div>
@@ -23,7 +24,8 @@ export default function Filme({ filmes }) {
 }
 
 export async function getServerSideProps() {
-  const res = await api.get("/filmes");
+  const categoria = "filme"; // Defina a categoria aqui
+  const res = await api.get(`/items?categoria=${categoria}`);
   const filmes = await res.data;
 
   return {
