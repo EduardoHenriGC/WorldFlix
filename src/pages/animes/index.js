@@ -1,7 +1,7 @@
 // Seu arquivo React (ex: Anime.js)
 import React from "react";
-import api from "../Data/api";
-import styles from "../styles/items.module.css";
+import api from "../../Data/api";
+import styles from "../../styles/items.module.css";
 
 export default function Anime({ animes }) {
   return (
@@ -12,7 +12,7 @@ export default function Anime({ animes }) {
             <div className={styles.content}>
               <h3 className={styles.title}>{nome}</h3>
               <img className={styles.img} src={img} alt={nome} />
-              <a className={styles.btn} href={`/anime/${id}`}>
+              <a className={styles.btn} href={`/animes/${id}`}>
                 ver mais..
               </a>
             </div>
@@ -24,7 +24,7 @@ export default function Anime({ animes }) {
 }
 
 export async function getServerSideProps() {
-  const categoria = "animes"; // Defina a categoria aqui
+  const categoria = "anime"; // Defina a categoria aqui
   const res = await api.get(`/items?categoria=${categoria}`);
   const animes = await res.data;
 

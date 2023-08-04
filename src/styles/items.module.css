@@ -5,7 +5,11 @@
 }
 .list {
   display: flex;
-  gap: 30px;
+  gap: 50px;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+  justify-content: center;
+  align-items: center;
 }
 .btn {
   position: absolute;
@@ -64,4 +68,15 @@
 
 .ep {
   color: #fff;
+}
+@media (max-width: 750px) {
+  .list {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  .list {
+    width: 100%;
+    gap: 80px;
+  }
 }

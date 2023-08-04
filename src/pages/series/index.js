@@ -1,18 +1,18 @@
 // Seu arquivo React (ex: Anime.js)
 import React from "react";
-import api from "@/Data/api";
-import styles from "../styles/items.module.css";
+import api from "../../Data/api";
+import styles from "../../styles/items.module.css";
 
-export default function Filmes({ series }) {
+export default function Filme({ serie }) {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        {series.map(({ id, nome, img }) => (
+        {serie.map(({ id, nome, img }) => (
           <li className={styles.item} key={id}>
             <div className={styles.content}>
               <h3 className={styles.title}>{nome}</h3>
               <img className={styles.img} src={img} alt={nome} />
-              <a className={styles.btn} href={`/anime/${id}`}>
+              <a className={styles.btn} href={`/series/${id}`}>
                 ver mais..
               </a>
             </div>
@@ -26,9 +26,9 @@ export default function Filmes({ series }) {
 export async function getServerSideProps() {
   const categoria = "serie"; // Defina a categoria aqui
   const res = await api.get(`/items?categoria=${categoria}`);
-  const series = await res.data;
+  const serie = await res.data;
 
   return {
-    props: { series },
+    props: { serie },
   };
 }

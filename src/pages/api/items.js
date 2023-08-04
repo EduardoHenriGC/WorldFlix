@@ -7,7 +7,7 @@ export default function handler(req, res) {
       descricao: "bom",
       nota: 86,
       nmrEp: 500,
-      categoria: "animes",
+      categoria: "anime",
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ export default function handler(req, res) {
       descricao: "bom mas depende",
       nota: 79,
       nmrEp: 44,
-      categoria: "animes",
+      categoria: "anime",
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ export default function handler(req, res) {
       descricao: "bom mas depende",
       nota: 91,
       nmrEp: 48,
-      categoria: "animes",
+      categoria: "anime",
     },
     {
       id: 4,
