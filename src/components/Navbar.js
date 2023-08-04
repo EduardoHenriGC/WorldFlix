@@ -1,0 +1,95 @@
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
+import styles from "../styles/Navbar.module.css";
+import SearchBar from "./searchBar";
+
+export default function Navbar() {
+  const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggleList = () => {
+    setIsOpen(false);
+  };
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 940) {
+        setIsOpen(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <div className={styles.navbar}>
+      <button
+        className={`${styles.menuBtn} ${isOpen ? styles.open : ""}`}
+        onClick={toggleMenu}
+      >
+        <span className={styles.menuIcon}></span>
+        <hr className={styles.menuIcon} />
+        <span className={styles.menuIcon}></span>
+      </button>
+
+      <ul className={isOpen ? styles.menuListOpen : styles.menuListClosed}>
+        <li>
+          <Link onClick={toggleList} href="/">
+            Feed
+          </Link>
+        </li>
+
+        <div className={styles.mobilePerfilContainer}>
+          <div className={styles.mobilePerfil}>
+            {session ? (
+              <button className={styles.btnMobile} onClick={signOut}>
+                Sair
+              </button>
+            ) : (
+              <button className={styles.btnsignIn} onClick={signIn}>
+                Entrar
+              </button>
+            )}
+          </div>
+
+          <img
+            src={session?.user.image}
+            width={session ? "50px" : "0"}
+            height="50px"
+            className={styles.imgMobile}
+          />
+        </div>
+      </ul>
+
+      <SearchBar />
+
+      <div className={styles.usuario}>
+        <div className={styles.log}>
+          {session ? (
+            <button className={styles.out} onClick={signOut}>
+              Sair
+            </button>
+          ) : (
+            <button className={styles.in} onClick={signIn}>
+              Entrar
+            </button>
+          )}
+          .
+        </div>
+        <p className={styles.name}>{session?.user.name}</p>
+        <img
+          className={styles.perfil}
+          src={session?.user.image}
+          width={session ? "50px" : "0"}
+          height="50px"
+        />
+      </div>
+    </div>
+  );
+}
