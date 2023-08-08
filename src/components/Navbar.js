@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import styles from "../styles/Navbar.module.css";
-import SearchBar from "./searchBar";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,10 +41,17 @@ export default function Navbar() {
           <Link onClick={toggleList} href="/">
             Home
           </Link>
+          <Link onClick={toggleList} href="/animes">
+            anime
+          </Link>
+          <Link onClick={toggleList} href="/filmes">
+            filmes
+          </Link>
+          <Link onClick={toggleList} href="/series">
+            series
+          </Link>
         </li>
       </ul>
-
-      <SearchBar />
     </div>
   );
 }

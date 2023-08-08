@@ -8,7 +8,7 @@ export default function AnimeItem({ anime }) {
     <div className={styles.container}>
       <h1>{anime.nome}</h1>
       <div className={styles.content}>
-        <div class={styles.childOne}>
+        <div className={styles.childOne}>
           <img className={styles.img} src={anime.img}></img>
           <div className={styles.info}>
             <h4>informações do arquivo</h4>
@@ -19,22 +19,22 @@ export default function AnimeItem({ anime }) {
             <p>Episódios: {anime.nmrEp}</p>
           </div>
         </div>
-        <div class={styles.childTwo}>
+        <div className={styles.childTwo}>
           <h4>Sinopse</h4>
           <p>{anime.descricao}</p>
         </div>
-        <div class={styles.childThree}>
+        <div className={styles.childThree}>
           <iframe
             width="100%"
             height="100%"
             src={anime.trailer}
-            allowfullscreen="allowfullscreen"
+            allowFullScreen
             mozallowfullscreen="mozallowfullscreen"
             msallowfullscreen="msallowfullscreen"
             oallowfullscreen="oallowfullscreen"
             webkitallowfullscreen="webkitallowfullscreen"
           ></iframe>
-          <img c width="100%" height="100%" src={anime.img2}></img>
+          <img width="100%" height="100%" src={anime.img2}></img>
         </div>
       </div>
     </div>

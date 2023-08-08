@@ -115,7 +115,7 @@
 }
 @media screen and (min-width: 701px) and (max-width: 1000px) {
   .content {
-    width: 90%;
+    width: 95%;
     grid-template-columns: 1fr 1fr; /* Agora temos duas colunas */
     gap: 10px; /* Espaçamento entre os filhos */
   }
@@ -131,7 +131,15 @@
   .childThree {
     grid-column: span 2; /* childThree ocupa duas colunas, uma linha inteira */
     display: flex; /* Ocupa toda a largura da linha */
-    order: 3; /* Coloca childThree na linha inferior */
+
+    height: 60%;
+  }
+  .childThree img {
+    height: 100%;
+  }
+
+  .childThree iframe {
+    height: 100%;
   }
 }
 @media screen and (min-width: 1000px) and (max-width: 1500px) {

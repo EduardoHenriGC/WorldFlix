@@ -6,15 +6,35 @@ import api from "../../Data/api";
 export default function FilmeItem({ filme }) {
   return (
     <div className={styles.container}>
+      <h1>{filme.nome}</h1>
       <div className={styles.content}>
-        <h2 className={styles.title}>{filme.nome}</h2>
-        <div className={styles.imgContent}>
-          <img className={styles.img} src={filme.imgBg} alt={filme.nome} />
-          <p className={styles.nota}>
-            Nota: <span className={styles.notanmr}>{filme.nota}</span>
-          </p>
+        <div class={styles.childOne}>
+          <img className={styles.img} src={filme.img}></img>
+          <div className={styles.info}>
+            <h4>informações do arquivo</h4>
+            <p>Gênero: {filme.genero}</p>
+            <p>Diretor: {filme.diretor}</p>
+            <p>duração: {filme.duracao}</p>
+            <p>ano Lançamento: {filme.anoLancamento}</p>
+          </div>
         </div>
-        <p className={styles.descricao}>{filme.descricao}</p>
+        <div class={styles.childTwo}>
+          <h4>Sinopse</h4>
+          <p>{filme.descricao}</p>
+        </div>
+        <div class={styles.childThree}>
+          <iframe
+            width="100%"
+            height="100%"
+            src={filme.trailer}
+            allowfullscreen="allowfullscreen"
+            mozallowfullscreen="mozallowfullscreen"
+            msallowfullscreen="msallowfullscreen"
+            oallowfullscreen="oallowfullscreen"
+            webkitallowfullscreen="webkitallowfullscreen"
+          ></iframe>
+          <img c width="100%" height="100%" src={filme.img2}></img>
+        </div>
       </div>
     </div>
   );

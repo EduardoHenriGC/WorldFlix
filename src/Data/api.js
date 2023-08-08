@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://worldflix.netlify.app//api",
+  baseURL: "http://worldflix.netlify.app/",
 });
 
 export default api;

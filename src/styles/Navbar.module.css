@@ -1,9 +1,10 @@
 .navbar {
   display: flex;
   justify-content: space-around;
+
   align-items: center;
   height: 80px;
-  background: #880016;
+  background: #2f0758;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -54,19 +55,26 @@
 
 .menuListOpen li {
   margin: 10px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .menuListOpen a {
-  font-size: 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.menuListOpen a:hover {
+  color: red;
 }
 
 .navbar ul {
-  background-color: #880016;
+  background-color: #2f0758;
 }
 .navbar ul li a {
   color: #fff;
 
   text-decoration: none;
+  margin: 10px;
 }
 
 .open .menuIcon:nth-child(1) {
