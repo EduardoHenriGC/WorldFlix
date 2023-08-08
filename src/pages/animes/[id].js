@@ -6,11 +6,36 @@ import api from "../../Data/api";
 export default function AnimeItem({ anime }) {
   return (
     <div className={styles.container}>
+      <h1>{anime.nome}</h1>
       <div className={styles.content}>
-        <h3 className={styles.title}>{anime.nome}</h3>
-        <img className={styles.img} src={anime.img} alt={anime.nome} />
-        <p>Descrição: {anime.descricao}</p>
-        <p>Nota: {anime.nota}</p>
+        <div class={styles.childOne}>
+          <img className={styles.img} src={anime.img}></img>
+          <div className={styles.info}>
+            <h4>informações do arquivo</h4>
+            <p>Gênero: {anime.genero}</p>
+
+            <p>duração: {anime.duracao}</p>
+            <p>ano Lançamento: {anime.anoLancamento}</p>
+            <p>Episódios: {anime.nmrEp}</p>
+          </div>
+        </div>
+        <div class={styles.childTwo}>
+          <h4>Sinopse</h4>
+          <p>{anime.descricao}</p>
+        </div>
+        <div class={styles.childThree}>
+          <iframe
+            width="100%"
+            height="100%"
+            src={anime.trailer}
+            allowfullscreen="allowfullscreen"
+            mozallowfullscreen="mozallowfullscreen"
+            msallowfullscreen="msallowfullscreen"
+            oallowfullscreen="oallowfullscreen"
+            webkitallowfullscreen="webkitallowfullscreen"
+          ></iframe>
+          <img c width="100%" height="100%" src={anime.img2}></img>
+        </div>
       </div>
     </div>
   );

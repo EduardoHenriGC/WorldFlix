@@ -7,10 +7,14 @@ export default function FilmeItem({ filme }) {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h3 className={styles.title}>{filme.nome}</h3>
-        <img className={styles.img} src={filme.img} alt={filme.nome} />
-        <p>Descrição: {filme.descricao}</p>
-        <p>Nota: {filme.nota}</p>
+        <h2 className={styles.title}>{filme.nome}</h2>
+        <div className={styles.imgContent}>
+          <img className={styles.img} src={filme.imgBg} alt={filme.nome} />
+          <p className={styles.nota}>
+            Nota: <span className={styles.notanmr}>{filme.nota}</span>
+          </p>
+        </div>
+        <p className={styles.descricao}>{filme.descricao}</p>
       </div>
     </div>
   );
