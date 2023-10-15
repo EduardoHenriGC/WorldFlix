@@ -2,23 +2,12 @@
 import React from "react";
 import api from "../../Data/api";
 import styles from "../../styles/items.module.css";
+import ItemList from "@/components/ItemList";
 
-export default function Anime({ animes }) {
+export default function Anime({ anime }) {
   return (
     <div className={styles.container}>
-      <ul className={styles.list}>
-        {animes.map(({ id, nome, img }) => (
-          <li className={styles.item} key={id}>
-            <div className={styles.content}>
-              <h3 className={styles.title}>{nome}</h3>
-              <img className={styles.img} src={img} alt={nome} />
-              <a className={styles.btn} href={`/animes/${id}`}>
-                ver mais..
-              </a>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <ItemList type={anime} rota="animes" />
     </div>
   );
 }
@@ -26,9 +15,9 @@ export default function Anime({ animes }) {
 export async function getServerSideProps() {
   const categoria = "anime"; // Defina a categoria aqui
   const res = await api.get(`/items?categoria=${categoria}`);
-  const animes = await res.data;
+  const anime = await res.data;
 
   return {
-    props: { animes },
+    props: { anime },
   };
 }

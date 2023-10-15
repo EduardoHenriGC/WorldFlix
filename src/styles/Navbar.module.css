@@ -57,19 +57,22 @@
   margin: 10px 0;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .menuListOpen a {
   font-size: 16px;
   text-transform: uppercase;
 }
+
 .menuListOpen a:hover {
-  color: red;
+  color: gold;
 }
 
 .navbar ul {
   background-color: #2f0758;
 }
+
 .navbar ul li a {
   color: #fff;
 

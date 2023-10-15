@@ -1,41 +1,17 @@
-import React from "react";
-
 import styles from "../../styles/item.module.css";
 import api from "../../Data/api";
+import ChildOne from "@/components/ChildOne";
+import ChildTwo from "@/components/ChildTwo";
+import ChildThree from "@/components/ChildThree";
 
 export default function AnimeItem({ anime }) {
   return (
     <div className={styles.container}>
       <h1>{anime.nome}</h1>
       <div className={styles.content}>
-        <div className={styles.childOne}>
-          <img className={styles.img} src={anime.img}></img>
-          <div className={styles.info}>
-            <h4>informações do arquivo</h4>
-            <p>Gênero: {anime.genero}</p>
-
-            <p>duração: {anime.duracao}</p>
-            <p>ano Lançamento: {anime.anoLancamento}</p>
-            <p>Episódios: {anime.nmrEp}</p>
-          </div>
-        </div>
-        <div className={styles.childTwo}>
-          <h4>Sinopse</h4>
-          <p>{anime.descricao}</p>
-        </div>
-        <div className={styles.childThree}>
-          <iframe
-            width="100%"
-            height="100%"
-            src={anime.trailer}
-            allowFullScreen
-            mozallowfullscreen="mozallowfullscreen"
-            msallowfullscreen="msallowfullscreen"
-            oallowfullscreen="oallowfullscreen"
-            webkitallowfullscreen="webkitallowfullscreen"
-          ></iframe>
-          <img width="100%" height="100%" src={anime.img2}></img>
-        </div>
+        <ChildOne lastInfo="Episódios" duracao={anime.duracao} img={anime.img} anoLancamento={anime.anoLancamento} genero={anime.genero} nmrEp={anime.nmrEp} />
+        <ChildTwo descricao={anime.descricao} />
+        <ChildThree img={anime.img2} trailer={anime.trailer} />
       </div>
     </div>
   );

@@ -2,23 +2,12 @@
 import React from "react";
 import api from "../../Data/api";
 import styles from "../../styles/items.module.css";
+import ItemList from "@/components/ItemList";
 
 export default function Filme({ filme }) {
   return (
     <div className={styles.container}>
-      <ul className={styles.list}>
-        {filme.map(({ id, nome, img }) => (
-          <li className={styles.item} key={id}>
-            <div className={styles.content}>
-              <h3 className={styles.title}>{nome}</h3>
-              <img className={styles.img} src={img} alt={nome} />
-              <a className={styles.btn} href={`/filmes/${id}`}>
-                ver mais..
-              </a>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <ItemList type={filme} rota="filmes" />
     </div>
   );
 }

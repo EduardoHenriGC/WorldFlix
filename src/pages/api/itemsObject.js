@@ -74,7 +74,7 @@ const Items = [
     anoLancamento: 2010,
     diretor: "Martin Scorsese",
     categoria: "filme",
-    trailer: "https://www.youtube.com/embed/y3dalJDGmt0",
+    trailer: "https://www.youtube.com/embed/gL4rP2prdfg?si=K2Es7h8Xhgtue4z6",
   },
   {
     id: 6,
